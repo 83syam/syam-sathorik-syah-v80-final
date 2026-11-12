@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SYAM - SATHORIK SYAH - Warung Sembako Bandung</title>
+<style>
+*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{margin:0;background:#D9B8E8;padding:10px;padding-bottom:30px}
+.header{display:flex;align-items:center;background:linear-gradient(90deg,#7B2CBF 0%,#7B2CBF 33%,#E91E63 33%,#E91E63 66%,#FFB84D 66%,#FFB84D 100%);border-radius:18px;padding:12px;color:#fff}
+.logo{display:flex;gap:2px}
+.logo span{background:#FFD93D;color:#7B2CBF;font-weight:900;padding:10px 6px;border-radius:8px;border:2px solid #B8860B;box-shadow:0 2px 0 #B8860B, inset 0 1px 0 #fff;font-size:13px}
+.header-mid{flex:1;text-align:center;background:#E91E63;border-radius:12px;padding:8px 4px;margin:0 8px}
+.header-mid h1{margin:0;color:#FFD93D;font-size:19px;line-height:1.2}
+.header-mid p{margin:3px 0 0;color:#fff;font-size:13px}
+.edit-btn{background:#FFD93D;border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:13px;line-height:1}
+.note{text-align:center;font-size:12px;color:#333;margin:8px 0}
+h2{color:#7B2CBF;text-align:center;font-size:19px;margin:22px 0 6px}
+.phone{border-radius:22px;padding:12px;color:#fff;margin-bottom:6px}
+.purple{background:#C77DFF}.pink{background:#E91E63}.orange{background:#FFB84D}
+.white{background:#FFFDF5;border-radius:12px;padding:11px;color:#222;margin:8px 0;text-align:center;line-height:1.5}
+.gold{background:#FFD93D;border-radius:12px;padding:11px;color:#222;margin:8px 0;text-align:center;font-weight:700;line-height:1.5}
+.btn{display:block;text-align:center;padding:13px;border-radius:22px;color:#fff;font-weight:700;margin:8px 0;text-decoration:none;font-size:14px}
+.btn-orange{background:#FF6B00}.btn-purple{background:#7B2CBF}.btn-green{background:#0E7A3D}.btn-blue{background:#1565C0}.btn-wa{background:#25D366}.btn-fb{background:#1877F2}
+input{width:100%;padding:12px;border-radius:12px;border:1px solid #ddd;margin:6px 0;font-size:14px}
+.center{text-align:center;font-weight:700}
+.footer{text-align:center;font-size:12px;color:#555;margin-top:20px}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER DIKUNCI V8.0 PILIHAN A ============ -->
+<!-- Logo SYAM kecil kiri atas EMAS 3D = TIDAK BISA DIEDIT, TETAP -->
+<!-- Yang dipanah hijau SATHORIK SYAH - Warung Sembako Bandung di kotak MERAH = BISA DIEDIT pakai PENSIL -->
+<div class="header">
+  <div class="logo"><span>S</span><span>Y</span><span>A</span><span>M</span></div>
+  <div class="header-mid">
+    <h1><span id="namaWarung">SATHORIK SYAH</span> <button class="edit-btn" onclick="editNama()" title="Edit Nama Warung - Yang dipanah hijau">✏️</button></h1>
+    <p><span id="alamatWarung">Warung Sembako Bandung</span> <button class="edit-btn" onclick="editAlamat()" title="Edit Alamat Warung">✏️</button></p>
+  </div>
+  <div style="font-size:11px;font-weight:700;text-align:center">Emas<br>3D</div>
+</div>
+<p class="note">Logo SYAM Emas 3D kecil kiri atas = TIDAK BISA DIEDIT - Yang tengah MERAH yang dipanah hijau = BISA DIEDIT</p>
+
+<!-- ============ 1. KASIR - Persis Gambar Bapak ============ -->
+<h2>1. KASIR - Persis Gambar Bapak</h2>
+<div class="phone purple">
+  <div class="gold">1. Kasir</div>
+  <div class="center">Kasir - Penjualan &nbsp;|&nbsp; Keranjang</div>
+  <div class="white"><b>[ Foto Beras Bulat + Karung ]</b><br><b style="font-size:16px">Beras Premium</b><br>Harga: <b>Rp 325.000 / karung</b><br>Jual: <b>Rp 14.000 / kg</b> - Stok: <b>20 karung</b></div>
+  <a class="btn btn-orange" href="#" onclick="tambah();return false">Tambah ke Keranjang</a>
+  <a class="btn btn-purple" href="#" onclick="checkout();return false">Checkout Sekarang</a>
+  <div class="center">Pembeli: Bp. Syam</div>
+  <div class="white">Keranjang: <b><span id="keranjang">0</span> item</b> - Total: <b>Rp <span id="totalKeranjang">0</span></b></div>
+  <div class="white">Contoh Kasir: Beras 2 Kg = Rp 28.000<br>Bp. Syam - Tunai / QRIS / Bon</div>
+</div>
+
+<!-- ============ 2. LAPORAN KEUNTUNGAN ============ -->
+<h2>2. LAPORAN KEUNTUNGAN</h2>
+<div class="phone pink">
+  <div class="gold">2. Laporan Keuntungan</div>
+  <div class="center">Laporan Keuntungan - Penjual</div>
+  <div class="gold">Per Karung - Ringkasan</div>
+  <div class="white">Modal &nbsp; <b>Rp 325.000</b><br>Jual &nbsp; <b>Rp 350.000</b></div>
+  <div class="white" style="color:#0E7A3D"><b style="font-size:16px">Untung Rp 25.000</b></div>
+  <div class="gold">Keuntungan: +Rp 25.000 / karung<br>Margin: +7.7%</div>
+  <a class="btn btn-purple" href="#" onclick="window.print();return false">Export Laporan PDF</a>
+</div>
+
+<!-- ============ 3. STRUK PDF ============ -->
+<h2>3. STRUK PDF</h2>
+<div class="phone orange">
+  <div class="gold">3. Struk PDF</div>
+  <div class="center">Struk Pembelian - PDF</div>
+  <div class="white"><b>STRUK PEMBELIAN</b><br>12 Okt 2024 - 14:32 WIB<br><b>Beras Premium - 1 Karung</b><br>Qty: 1 - Rp 325.000 - Diskon: Rp 0<br><b>TOTAL BAYAR - Rp 325.000</b></div>
+  <div class="white">Metode: Tunai - Status: <b>LUNAS</b><br><b>Pembeli: Bp. Syam</b></div>
+  <div class="center">SYAM Emas Kecil - <span class="namaStruk">SATHORIK SYAH</span><br><span class="alamatStruk">Warung Sembako Bandung</span><br>Terima kasih - Bp. Syam</div>
+  <a class="btn btn-purple" href="#" onclick="window.print();return false">Cetak / Simpan Struk PDF</a>
+</div>
+
+<!-- ============ 4. LOGIN ============ -->
+<h2>4. LOGIN</h2>
+<div class="phone purple">
+  <div class="white"><b>SYAM Emas 3D Kecil Kiri Atas</b><br><span class="small">Logo tetap, tidak bisa diedit</span></div>
+  <input id="namaLogin" placeholder="Nama: DEMO" value="DEMO">
+  <input id="kodeLogin" placeholder="Kode: SATHORIK-2026" value="SATHORIK-2026">
+  <a class="btn btn-green" href="#" onclick="login();return false">MASUK</a>
+  <div class="white">Master: <b>PUSAT-83</b><br>Karyawan: <b>KARYAWAN-01</b></div>
+</div>
+
+<!-- ============ 5. HUTANG / BON ============ -->
+<h2>5. HUTANG / BON - Bp. Syam</h2>
+<div class="phone pink">
+  <div class="white"><b>Bp. Syam - Rp 29.000</b><br>Beras 2 Kg - Tempo 7 Hari</div>
+  <div class="white"><b>Pak Budi - Rp 43.250</b><br>Mie 5 + Kopi 1 Renteng</div>
+  <a class="btn btn-green" href="#" onclick="alert('Bayar Sebagian Rp 20.000 - Sisa Bp. Syam: Rp 9.000');return false">BAYAR SEBAGIAN 20.000</a>
+  <a class="btn btn-wa" href="https://wa.me/6280000000000?text=Halo%20Bp.%20Syam%2C%20hutang%20Beras%202%20Kg%20Rp%2029.000%20jatuh%20tempo%207%20hari%20-%20SYAM">INGATKAN WA OTOMATIS</a>
+  <a class="btn btn-blue" href="#" onclick="window.print();return false">STRUK PDF BON</a>
+  <div class="center">Total Belum Lunas: Rp 72.250</div>
+</div>
+
+<!-- ============ 6. STOK + HARGA PASAR ============ -->
+<h2>6. STOK + HARGA PASAR</h2>
+<div class="phone orange">
+  <div class="gold">Harga Pasar 11 Nov 2026</div>
+  <div class="white"><b>Beras 25Kg</b> - Modal 325.000 - Jual <b style="color:#0E7A3D">14.000 / kg</b></div>
+  <div class="white"><b>Minyak 1L</b> - Modal 20.300 - Jual <b style="color:#0E7A3D">22.500</b></div>
+  <div class="white"><b>Gula 1Kg</b> - Modal 19.550 - Jual <b style="color:#0E7A3D">21.000</b></div>
+  <div class="white"><b>Telur 1Kg</b> - Modal 29.200 - Jual <b style="color:#0E7A3D">32.000</b></div>
+  <div class="white">Foto Barang: Kamera / Link / Upload</div>
+  <div class="gold">Kartu Putih / Krem - Persis Gambar Bapak</div>
+</div>
+
+<!-- ============ 7. BAGIKAN ============ -->
+<h2>7. BAGIKAN</h2>
+<div class="phone purple">
+  <div class="white"><b>BAGIKAN APLIKASI INI</b></div>
+  <a class="btn btn-wa" href="https://wa.me/?text=Coba%20aplikasi%20SYAM%20-%20SATHORIK%20SYAH%20Warung%20Sembako%20Bandung">BAGIKAN VIA WA</a>
+  <a class="btn btn-fb" href="#" onclick="alert('Bagikan via Facebook - Link disalin');return false">BAGIKAN VIA FACEBOOK</a>
+  <a class="btn btn-orange" href="#" onclick="salin();return false">SALIN LINK</a>
+  <div class="gold">COBA GRATIS 7 HARI</div>
+  <div class="white">QR Warung Lain: Coba aplikasi<br>QR Pembeli: Belanja tanpa login</div>
+</div>
+
+<!-- ============ 8. PANDUAN PENJUAL ============ -->
+<h2>8. PANDUAN PENJUAL</h2>
+<div class="phone pink">
+  <div class="gold">MODE PENJUAL</div>
+  <div class="white">1. LOGIN - DEMO / SATHORIK-2026</div>
+  <div class="white">2. ISI STOK - Foto, Modal, Jual</div>
+  <div class="white">3. KASIR - Beras 2 Kg = 28.000</div>
+  <div class="white">4. BAYAR / BON - Nama: Bp. Syam</div>
+  <div class="white">5. CEK UNTUNG - 325.000 -&gt; 25.000</div>
+  <div class="white">6. BAGIKAN - QR / WA</div>
+</div>
+
+<!-- ============ 9. PANDUAN PEMBELI ============ -->
+<h2>9. PANDUAN PEMBELI</h2>
+<div class="phone orange">
+  <div class="gold">MODE PEMBELI</div>
+  <div class="white">1. BUKA LINK / QR - Tanpa Login</div>
+  <div class="white">2. LIHAT HARGA JUAL 14.000</div>
+  <div class="white">3. PILIH - Beras 2 Kg</div>
+  <div class="white">4. KIRIM WA - Saya Bp. Syam</div>
+  <div class="white">5. BAYAR - Tunai / QRIS</div>
+  <div class="white">6. TERIMA STRUK PDF</div>
+  <div class="center">Pesan WA: Halo, Saya Bp. Syam mau pesan Beras 2 Kg</div>
+</div>
+
+<div class="footer">SYAM V8.0 PILIHAN A - DIKUNCI - SATHORIK SYAH - Warung Sembako Bandung<br>Repo baru: syam-sathorik-syah-v80-final - File: bismillah.html<br>Jangan dirubah sebelum ada perintah penambahan dan perubahan dari Bapak</div>
+
+<script>
+// DIKUNCI V8.0 - Yang dipanah hijau BISA DIEDIT, Logo TIDAK BISA DIEDIT
+function loadNama(){
+  var n=localStorage.getItem('namaWarung')||'SATHORIK SYAH';
+  var a=localStorage.getItem('alamatWarung')||'Warung Sembako Bandung';
+  document.getElementById('namaWarung').innerText=n;
+  document.getElementById('alamatWarung').innerText=a;
+  document.querySelectorAll('.namaStruk').forEach(function(e){e.innerText=n});
+  document.querySelectorAll('.alamatStruk').forEach(function(e){e.innerText=a});
+  document.title='SYAM - '+n+' - '+a;
+}
+function editNama(){
+  var baru=prompt('Edit Nama Warung - Yang di kotak MERAH, yang dipanah hijau (Baris 1):', document.getElementById('namaWarung').innerText);
+  if(baru && baru.trim()!==''){ localStorage.setItem('namaWarung', baru.trim()); loadNama(); alert('Nama warung berubah jadi: '+baru); }
+}
+function editAlamat(){
+  var baru=prompt('Edit Alamat / Keterangan Warung - Baris 2 (Warung Sembako Bandung):', document.getElementById('alamatWarung').innerText);
+  if(baru && baru.trim()!==''){ localStorage.setItem('alamatWarung', baru.trim()); loadNama(); alert('Alamat berubah jadi: '+baru); }
+}
+var jml=0, tot=0;
+function tambah(){ jml++; tot+=14000; document.getElementById('keranjang').innerText=jml; document.getElementById('totalKeranjang').innerText=tot.toLocaleString('id-ID'); alert('Ditambah ke keranjang. Pembeli: Bp. Syam - Beras 1 Kg = 14.000'); }
+function checkout(){ if(tot===0){ alert('Keranjang masih kosong, Pak. Tambah Beras dulu.'); return; } alert('Checkout - Pembeli: Bp. Syam - Total: Rp '+tot.toLocaleString('id-ID')+' - Terima kasih'); }
+function login(){ var n=document.getElementById('namaLogin').value||'DEMO'; alert('Selamat datang, '+n+' - Kode: SATHORIK-2026 - Master: PUSAT-83'); }
+function salin(){ try{ navigator.clipboard.writeText(location.href); }catch(e){} alert('Link disalin: '+location.href); }
+loadNama();
+</script>
+</body>
+  </html>
