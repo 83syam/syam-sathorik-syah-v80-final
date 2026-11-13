@@ -27,9 +27,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{border-bottom:1px
 <div style="flex:1"><h1>SYAM</h1><p>TOKO SYAM - BANDUNG</p></div>
 <div class="badge">V9.3 - LOGO BARU</div>
 </header>
-
-<div class="card">
-<nav>
+<div class="card"><nav>
 <button onclick="show('p1',this)" class="on">1. Beranda</button>
 <button onclick="show('p2',this)">2. Barang</button>
 <button onclick="show('p3',this)">3. Keranjang</button>
@@ -38,77 +36,18 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{border-bottom:1px
 <button onclick="show('p6',this)">6. Stok</button>
 <button onclick="show('p7',this)">7. Login</button>
 <button onclick="show('p8',this)">8. Cara Pakai</button>
-</nav>
-</div>
-
-<div class="card page on" id="p1">
-<h2>Selamat Datang di SYAM</h2><p>129 Barang • Harga Grosir & Ecer • Bandung</p>
-<input id="cari" placeholder="Cari barang... ketik nama barang" oninput="tampil()">
-<div style="text-align:center;font-size:13px">Total Barang: <b id="totalBarang">129</b> • Keranjang: <b id="jmlKeranjang">0</b></div>
-<div class="grid" id="listHome"></div>
-</div>
-
-<div class="card page" id="p2">
-<h2>Daftar Barang</h2><p>Semua 129 barang SYAM</p>
-<input id="cari2" placeholder="Cari di daftar barang..." oninput="tampil2()">
-<div id="listAll"></div>
-</div>
-
-<div class="card page" id="p3">
-<h2>Keranjang Belanja</h2><p>Cek sebelum bayar</p>
-<div id="listCart"></div>
-<h3 style="text-align:right">Total: Rp <span id="totalCart">0</span></h3>
-<button class="btn" onclick="show('p4',document.querySelectorAll('nav button')[3])">Lanjut ke Kasir →</button>
-</div>
-
-<div class="card page" id="p4">
-<h2>Kasir</h2><p>Bayar & cetak struk</p>
-<input id="namaCust" placeholder="Nama Pembeli">
-<input id="bayar" type="number" placeholder="Uang dibayar (Rp)" oninput="hitungKembali()">
-<div style="font-size:15px">Total: Rp <b id="totalKasir">0</b><br>Kembalian: Rp <b id="kembali">0</b></div>
-<button class="btn" onclick="bayarNow()">BAYAR SEKARANG</button>
-<button class="btn btn2" onclick="batal()">Batal / Kosongkan Keranjang</button>
-<div id="struk" style="margin-top:12px;font-size:13px"></div>
-</div>
-
-<div class="card page" id="p5">
-<h2>Laporan</h2><p>Rekap penjualan hari ini</p>
-<div id="lap"></div>
-<button class="btn btn2" onclick="resetLap()">Reset Laporan</button>
-</div>
-
-<div class="card page" id="p6">
-<h2>Stok Barang</h2><p>Stok awal semua 100 pcs</p>
-<div id="listStok"></div>
-</div>
-
-<div class="card page" id="p7">
-<h2>Login Admin</h2><p>Login untuk buka kasir & laporan</p>
-<input id="user" placeholder="Username: admin">
-<input id="pass" type="password" placeholder="Password: 1234">
-<button class="btn" onclick="login()">LOGIN</button>
-<div id="loginMsg" style="text-align:center;margin-top:10px;font-weight:700"></div>
-<p style="text-align:center;font-size:12px;color:#888">Demo: admin / 1234</p>
-</div>
-
-<div class="card page" id="p8">
-<h2>Cara Pakai</h2><p>Ikuti langkah ini, Pak - Dijamin jalan</p>
-<div class="cara">
-<div><b>1. Cari Barang:</b><br>Di Beranda, ketik nama barang di kotak Cari. Contoh: Beras, Minyak, Kopi.</div>
-<div><b>2. Masuk Keranjang:</b><br>Pencet tombol <b>+ Keranjang</b> di barang yang mau dibeli.</div>
-<div><b>3. Cek Keranjang:</b><br>Pencet tombol <b>3. Keranjang</b> di atas. Lihat totalnya sudah betul belum.</div>
-<div><b>4. Bayar di Kasir:</b><br>Pencet <b>Lanjut ke Kasir</b>. Isi Nama Pembeli, isi Uang Dibayar. Kembalian langsung kehitung otomatis.</div>
-<div><b>5. Selesai:</b><br>Pencet <b>BAYAR SEKARANG</b>. Struk muncul, stok otomatis berkurang, laporan otomatis nambah.</div>
-<div><b>6. Login Admin:</b><br>Username: <b>admin</b> Password: <b>1234</b>. Kalau salah, muncul tulisan merah.</div>
-<div><b>7. Kalau Error:</b><br>Tutup browser, buka lagi 83syam.github.io. Jangan pencet tombol lain dulu.</div>
-<button class="btn" onclick="show('p1',document.querySelectorAll('nav button')[0])">← Kembali ke Beranda & Mulai Jualan</button>
-</div>
-</div>
-
+</nav></div>
+<div class="card page on" id="p1"><h2>Selamat Datang di SYAM</h2><p>129 Barang • Harga Grosir & Ecer • Bandung</p><input id="cari" placeholder="Cari barang... ketik nama barang" oninput="tampil()"><div style="text-align:center;font-size:13px">Total Barang: <b id="totalBarang">129</b> • Keranjang: <b id="jmlKeranjang">0</b></div><div class="grid" id="listHome"></div></div>
+<div class="card page" id="p2"><h2>Daftar Barang</h2><p>Semua 129 barang SYAM</p><input id="cari2" placeholder="Cari di daftar barang..." oninput="tampil2()"><div id="listAll"></div></div>
+<div class="card page" id="p3"><h2>Keranjang Belanja</h2><p>Cek sebelum bayar</p><div id="listCart"></div><h3 style="text-align:right">Total: Rp <span id="totalCart">0</span></h3><button class="btn" onclick="show('p4',document.querySelectorAll('nav button')[3])">Lanjut ke Kasir →</button></div>
+<div class="card page" id="p4"><h2>Kasir</h2><p>Bayar & cetak struk</p><input id="namaCust" placeholder="Nama Pembeli"><input id="bayar" type="number" placeholder="Uang dibayar (Rp)" oninput="hitungKembali()"><div style="font-size:15px">Total: Rp <b id="totalKasir">0</b><br>Kembalian: Rp <b id="kembali">0</b></div><button class="btn" onclick="bayarNow()">BAYAR SEKARANG</button><button class="btn btn2" onclick="batal()">Batal / Kosongkan Keranjang</button><div id="struk" style="margin-top:12px;font-size:13px"></div></div>
+<div class="card page" id="p5"><h2>Laporan</h2><p>Rekap penjualan hari ini</p><div id="lap"></div><button class="btn btn2" onclick="resetLap()">Reset Laporan</button></div>
+<div class="card page" id="p6"><h2>Stok Barang</h2><p>Stok awal semua 100 pcs</p><div id="listStok"></div></div>
+<div class="card page" id="p7"><h2>Login Admin</h2><p>Login untuk buka kasir & laporan</p><input id="user" placeholder="Username: admin"><input id="pass" type="password" placeholder="Password: 1234"><button class="btn" onclick="login()">LOGIN</button><div id="loginMsg" style="text-align:center;margin-top:10px;font-weight:700"></div><p style="text-align:center;font-size:12px;color:#888">Demo: admin / 1234</p></div>
+<div class="card page" id="p8"><h2>Cara Pakai</h2><p>Ikuti langkah ini, Pak - Dijamin jalan</p><div class="cara"><div><b>1. Cari Barang:</b><br>Di Beranda, ketik nama barang di kotak Cari. Contoh: Beras, Minyak, Kopi.</div><div><b>2. Masuk Keranjang:</b><br>Pencet tombol <b>+ Keranjang</b> di barang yang mau dibeli.</div><div><b>3. Cek Keranjang:</b><br>Pencet tombol <b>3. Keranjang</b> di atas. Lihat totalnya sudah betul belum.</div><div><b>4. Bayar di Kasir:</b><br>Pencet <b>Lanjut ke Kasir</b>. Isi Nama Pembeli, isi Uang Dibayar. Kembalian langsung kehitung otomatis.</div><div><b>5. Selesai:</b><br>Pencet <b>BAYAR SEKARANG</b>. Struk muncul, stok otomatis berkurang, laporan otomatis nambah.</div><div><b>6. Login Admin:</b><br>Username: <b>admin</b> Password: <b>1234</b>. Kalau salah, muncul tulisan merah.</div><div><b>7. Kalau Error:</b><br>Tutup browser, buka lagi 83syam.github.io. Jangan pencet tombol lain dulu.</div><button class="btn" onclick="show('p1',document.querySelectorAll('nav button')[0])">← Kembali ke Beranda & Mulai Jualan</button></div></div>
 <div class="foot">SYAM V9.3 - LOGO BARU • 129 Barang • Bandung • 83syam.github.io</div>
-
 <script>
-let namaBarang=["Beras 5kg","Minyak Goreng 2L","Gula Pasir 1kg","Telur 1kg","Mie Instan","Susu Kental","Kopi Bubuk","Teh Celup","Sabun Mandi","Shampo","Pasta Gigi","Deterjen","Kecap Manis","Saos Tomat","Sarden Kaleng","Kornet","Margarin","Keju","Roti Tawar","Biskuit","Coklat","Permen","Kerupuk","Kacang","Air Mineral","Sirup","Jus Kotak","Soda","Energi Drink","Susu UHT","Yogurt","Mentega","Tepung Terigu","Tepung Beras","Bumbu Racik","Lada Bubuk","Garam","Penyedap","Santan","Mie Telur","Bihun","Soun","Makaroni","Spageti","Saos Sambal","Mayones","Cuka","Kecap Asin","Abon","Dendeng","Sosis","Nugget","Bakso","Susu Bubuk","Kopi Sachet","Teh Botol","Sabun Cuci","Pembersih Lantai","Pewangi","Tisu","Pembalut","Popok Bayi","Bedak","Lotion","Minyak Rambut","Sikat Gigi","Sabun Cuci Piring","Spons","Kantong Plastik","Baterai","Lilin","Korek Api","Obat Nyamuk","Pasta","Minyak Kayu Putih","Balsem","Plester","Vitamin C","Madu","Selai","Sereal","Oatmeal","Susu Kedelai","Kacang Almond","Kismis","Kurma","Gula Merah","Gula Batu","Agar-agar","Jelly","Puding","Es Krim","Frozen Food","Ayam Beku","Ikan Kaleng","Tuna Kaleng","Susu Evaporasi","Krimer","Gula Diet","Stevia","Bumbu Rendang","Bumbu Opor","Bumbu Gulai","Bumbu Soto","Bumbu Nasi Goreng","Bumbu Ayam Goreng","Saus Tiram","Minyak Wijen","Minyak Zaitun","Cuka Apel","Beras Merah","Beras Ketan","Jagung","Kedelai","Kacang Hijau","Kacang Tanah","Wijen","Jahe Bubuk","Kunyit Bubuk","Ketumbar","Jintan","Kayu Manis","Cengkeh","Pala","Daun Salam","Serai","Lengkuas","Kencur","Temulawak","Kopi Hitam","Teh Hijau","Jahe Merah","Susu Jahe","Wedang","Bajigur","Bandrek","Sekoteng"];
+let namaBarang=["Beras 5kg","Minyak Goreng 2L","Gula Pasir 1kg","Telur 1kg","Mie Instan","Susu Kental","Kopi Bubuk","Teh Celup","Sabun Mandi","Shampo","Pasta Gigi","Deterjen","Kecap Manis","Saos Tomat","Sarden Kaleng","Kornet","Margarin","Keju","Roti Tawar","Biskuit","Coklat","Permen","Kerupuk","Kacang","Air Mineral","Sirup","Jus Kotak","Soda","Energi Drink","Susu UHT","Yogurt","Mentega","Tepung Terigu","Tepung Beras","Bumbu Racik","Lada Bubuk","Garam","Penyedap","Santan","Mie Telur","Bihun","Soun","Makaroni","Spageti","Saos Sambal","Mayones","Cuka","Kecap Asin","Abon","Dendeng","Sosis","Nugget","Bakso","Susu Bubuk","Kopi Sachet","Teh Botol","Sabun Cuci","Pembersih Lantai","Pewangi","Tisu","Pembalut","Popok Bayi","Bedak","Lotion","Minyak Rambut","Sikat Gigi","Sabun Cuci Piring","Spons","Kantong Plastik","Baterai","Lilin","Korek Api","Obat Nyamuk","Pasta","Minyak Kayu Putih","Balsem","Plester","Vitamin C","Madu","Selai","Sereal","Oatmeal","Susu Kedelai","Kacang Almond","Kismis","Kurma","Gula Merah","Gula Batu","Agar-agar","Jelly","Puding","Es Krim","Frozen Food","Ayam Beku","Ikan Kaleng","Tuna Kaleng","Susu Evaporasi","Krimer","Gula Diet","Stevia","Bumbu Rendang","Bumbu Opor","Bumbu Gulai","Bumbu Soto","Bumbu Nasi Goreng","Bumbu Ayam Goreng","Saus Tiram","Minyak Wijen","Minyak Zaitun","Cuka Apel","Beras Merah","Beras Ketan","Jagung","Kedelai","Kacang Hijau","Kacang Tanah","Wijen","Jahe Bubuk","Kunyit Bubuk","Ketumbar","Jintan","Kayu Manis","Cengkeh","Pala","Daun Salam","Serai","Lengkuas","Kencur","Temulawak"];
 let barang=[];for(let i=0;i<129;i++){let n=namaBarang[i];let h=5000+((i*1373)%45000);barang.push({id:i+1,nama:n,harga:h,stok:100})}
 let cart={};let totalJual=0;let jmlTrans=0;
 function rp(n){return n.toLocaleString('id-ID')}
