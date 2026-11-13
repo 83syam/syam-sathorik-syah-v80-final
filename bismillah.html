@@ -5,49 +5,125 @@
 <style>
 *{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0;background:linear-gradient(135deg,#2A0A5E,#6D28D9 45%,#F97316);min-height:100vh;padding:12px}
 header{background:linear-gradient(135deg,#FFD700,#F5C518);display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:18px;position:sticky;top:8px;z-index:10}
-/* LOGO BARU V9.3 - KIRI ATAS - KOTAK ABU TUA GELAP - BIAR KELIHATAN BEDA DARI V9.1 */
 .logo{width:52px;height:52px;flex-shrink:0;background:#2F353D;display:grid;place-items:center;border-radius:12px;overflow:hidden}
 .logo svg{width:48px;height:48px}
 header h1{margin:0;font-size:20px;color:#0B2A5B}header p{margin:2px 0 0;font-size:11px;color:#333;font-weight:700}
+.badge{background:#2F353D;color:#FFD700;padding:4px 8px;border-radius:20px;font-size:11px;font-weight:700}
 .card{background:#fff;border-radius:22px;padding:18px;margin:14px 0}.page{display:none}.page.on{display:block}
-h2{margin:0 0 4px;text-align:center;color:#1A1033}.sub{text-align:center;color:#666;font-size:13px;margin-bottom:12px}
-input,select{width:100%;padding:13px;border:2px solid #E5E7EB;border-radius:14px;margin:7px 0;font-size:15px}
-.btn{width:100%;padding:14px;border:0;border-radius:14px;font-weight:800;font-size:16px;color:#fff;cursor:pointer;margin-top:8px}
-.orange{background:#F97316}.purple{background:#6D28D9}
-table{width:100%;border-collapse:collapse;font-size:13px}th,td{border-bottom:1px solid #eee;padding:8px;text-align:left}
-.badge{background:#F97316;color:#fff;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:800}.badgeG{background:#16A34A;color:#fff;padding:4px 10px;border-radius:20px;font-size:12px}
-.nav{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}.nav button{flex:1;padding:10px;border:0;border-radius:12px;background:#fff;font-weight:800;cursor:pointer}.nav button.on{background:#2A0A5E;color:#fff}
-.price{color:#F97316;font-weight:900;font-size:18px}.small{font-size:12px;color:#666;text-align:center}
-.step{display:flex;gap:10px;align-items:center;background:#F5F3FF;padding:12px;border-radius:16px;margin:8px 0}.num{background:#F97316;color:#fff;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:900;flex-shrink:0}
-.footer{background:linear-gradient(90deg,#6D28D9,#F97316);color:#fff;padding:14px;border-radius:16px;text-align:center;font-weight:800}
-</style></head><body>
-<!-- LOGO BARU - KIRI ATAS - HEKSAGON BIRU 3D, LUBANG TENGAH ABU TUA GELAP, KOTAK ABU TUA GELAP -->
-<header><div class="logo"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#2F353D"/><polygon points="50,4 92,26 92,74 50,96 8,74 8,26" fill="#1E6FD6"/><polygon points="50,4 92,26 50,48 8,26" fill="#4AA3FF"/><polygon points="50,48 92,26 92,74 50,96" fill="#0B4AA8"/><polygon points="50,28 76,42 76,68 50,82 24,68 24,42" fill="#2F353D"/><text x="50" y="62" font-size="26" font-weight="900" fill="#0EA5FF" text-anchor="middle" stroke="#0B4AA8" stroke-width="0.5">SYAM</text></svg></div><div><h1>SYAM</h1><p>SATHORIK SYAH • Bandung • 129 Barang</p></div><div style="margin-left:auto;font-size:11px;font-weight:800;background:#fff;padding:6px 10px;border-radius:20px">V9.3 - LOGO BARU</div></header>
-<div class="nav"><button onclick="show('login',this)" class="on">Login</button><button onclick="show('monitor',this)">Monitor</button><button onclick="show('kasir',this)">Kasir</button><button onclick="show('laporan',this)">Laporan</button><button onclick="show('belanja',this)">Belanja</button><button onclick="show('pengaturan',this)">Pengaturan</button><button onclick="show('cara',this)">Cara Pakai</button></div>
-<div id="login" class="page on"><div class="card"><h2>Login</h2><p class="sub">Pemilik & Penjual</p><input id="u" placeholder="Username - Pusat83"><input id="p" type="password" placeholder="Password"><button class="btn orange" onclick="login()">MASUK</button><p id="msg" class="small"></p><button class="btn purple" onclick="show('belanja',document.querySelectorAll('.nav button')[4])">LIHAT DEMO PEMBELI - TANPA LOGIN</button><p class="small">Pemilik: Pusat83 / attalla01<br>Penjual: Pusat83 / JUAL-A83K</p></div></div>
-<div id="monitor" class="page"><div class="card"><h2>Monitor Pusat</h2><p class="sub">Total Barang Terdaftar: <b id="totalMonitor">129</b></p><p>Total Penjual: <b>12</b> • Total Pesanan: <b>84</b> • Total Hutang: <b>Rp 1.250.000</b></p><p>JUAL-A83K <span class="badgeG">Aktif</span></p><button class="btn orange" onclick="buatKode()">+ Buat Kode Acak Penjual Baru</button><p id="kodeBaru"></p><p>Ibu Ani - Beras 5kg - Rp 70.000 - <span class="badgeG">LUNAS</span></p><p>Budi - Indomie Goreng 5 bungkus - Rp 17.500 - Bon <button onclick="this.innerText='LUNAS ✅';this.style.background='#16A34A'" style="background:#F97316;color:#fff;border:0;padding:6px 12px;border-radius:10px;font-weight:800">LUNAS</button></p></div></div>
-<div id="kasir" class="page"><div class="card"><h2>Kasir - Penjual</h2><p class="sub"><span id="countTampil">129</span> Barang • Otomatis Muncul</p><input id="cariInput" placeholder="🔍 Cari: Indomie, Mie Sedaap, Beras, Chiki" oninput="renderKasir()"><select id="katFilter" onchange="renderKasir()"><option value="">Semua Kategori</option><option>Sembako</option><option>Mie Instan</option><option>Jajanan Anak</option><option>Sayuran</option><option>Obat Warung</option><option>Minuman</option><option>Bumbu & Lainnya</option></select><table><tr><th>Barang</th><th>Kategori</th><th>Harga</th><th>Stok</th><th></th></tr><tbody id="tbKasir"></tbody></table><div style="background:#FFF7ED;padding:14px;border-radius:16px;margin-top:12px"><b>Beras Premium</b><div class="price">Jual Rp 14.000 / kg • Modal Rp 325.000 / karung • Stok 20 karung</div></div><button class="btn orange" onclick="alert('Checkout Berhasil - Struk dibuat di Laporan')">Checkout Sekarang</button><p class="small">Keranjang: <span id="cart">0 barang</span> • Total: <span id="cartTotal">Rp 0</span></p></div></div>
-<div id="laporan" class="page"><div class="card"><h2>Laporan + Struk</h2><p>Modal: <b>Rp 325.000</b> • Jual: <b>Rp 350.000</b> • Untung: <b style="color:#16A34A">Rp 25.000</b> • Margin: <span class="badge">7.7%</span></p><button class="btn purple" onclick="window.print()">Export Laporan PDF</button><div style="border:2px dashed #999;padding:14px;border-radius:16px;margin-top:12px"><b>Struk - 12 Okt 2024</b><p>Beras Premium 1 karung - Rp 325.000<br>Indomie Goreng 5 bungkus - Rp 17.500</p><p><b>TOTAL Rp 342.500 - Tunai • <span class="badgeG">LUNAS</span></b></p><button class="btn purple" onclick="window.print()">Download Struk PDF</button></div></div></div>
-<div id="belanja" class="page"><div class="card"><h2>Belanja</h2><p class="sub">Pembeli: Ibu Ani • Cari & Pesan - Semua 129 Barang</p><input id="cariBelanja" placeholder="🔍 Cari untuk dibeli... contoh: Mie Sedaap" oninput="renderBelanja()"><div id="belanjaList"></div><div style="border-top:1px solid #eee;padding-top:12px;margin-top:12px"><p><b>Pembayaran</b></p><label><input type="checkbox" checked style="width:auto"> Tunai</label><br><button class="btn orange" onclick="alert('Bayar Sekarang Berhasil - LUNAS')">Bayar Sekarang</button></div><p><b>Bon - Hutang</b></p><p style="color:#16A34A;font-weight:800">Hutang Saya Rp 0</p><p>⭐⭐⭐⭐⭐ <b>Review 4.8 / 5 dari 127 ulasan</b></p></div></div>
-<div id="pengaturan" class="page"><div class="card"><h2>Pengaturan</h2><p><b>Harga Beras</b></p><input value="Rp 14.000"><p><b>Stok Beras</b></p><input value="25 karung"><p><b>Harga Indomie Goreng</b></p><input value="Rp 3.500"><p><b>Harga Mie Sedaap Goreng</b></p><input value="Rp 3.500"><button class="btn purple" onclick="alert('Harga & Stok Disimpan')">SIMPAN</button></div></div>
-<div id="cara" class="page"><div class="card"><h2>Cara Pakai</h2><p class="sub">3 Langkah Mudah - 129 Barang</p><div class="step"><div class="num">1</div><div><b>Buka LINK Dari Penjual</b><br>1 link untuk semua</div></div><div class="step"><div class="num">2</div><div><b>Pilih Barang dan Pesan</b><br>Cari Indomie / Mie Sedaap / Beras, pencet PESAN SEKARANG</div></div><div class="step"><div class="num">3</div><div><b>Lihat Hutang dan Transaksi</b><br>Cek Hutang Saya & Laporan Saya</div></div><div class="footer">HUBUNGI PENJUAL UNTUK BELI APLIKASI<br>WhatsApp 24/7 💬</div><p class="small">© SYAM V9.3 LOGO BARU • 129 Barang • 0 Eror</p></div></div>
+h2{margin:0 0 4px;text-align:center;color:#2A0A5E}h2+p{text-align:center;color:#666;font-size:13px;margin:0 0 14px}
+nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}nav button{border:0;background:#2A0A5E;color:#fff;padding:9px 12px;border-radius:20px;font-weight:700;cursor:pointer}nav button.on{background:#F97316}
+input,select{width:100%;padding:11px;border:1px solid #ddd;border-radius:12px;margin:6px 0;font-size:15px}
+.btn{width:100%;padding:12px;border:0;border-radius:12px;background:#F97316;color:#fff;font-weight:800;font-size:16px;cursor:pointer;margin-top:8px}
+.btn2{background:#2A0A5E}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.item{border:1px solid #eee;border-radius:14px;padding:10px;text-align:center}.item b{display:block;font-size:13px;min-height:32px}.item span{color:#F97316;font-weight:800}.item small{color:#888}
+.item button{width:100%;margin-top:6px;padding:8px;border:0;border-radius:10px;background:#2A0A5E;color:#fff;font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{border-bottom:1px solid #eee;padding:8px;text-align:left}
+.foot{text-align:center;color:#fff;font-size:12px;padding:10px}
+.cara{font-size:14px;line-height:1.7}.cara b{color:#2A0A5E}.cara div{background:#FFF7ED;border:1px solid #FFE0B2;border-radius:12px;padding:10px;margin:8px 0}
+</style></head>
+<body>
+<header>
+<div class="logo"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="#2F353D"/><text x="24" y="30" text-anchor="middle" font-size="22" font-weight="900" fill="#FFD700">S</text><text x="24" y="42" text-anchor="middle" font-size="8" font-weight="700" fill="#fff">SYAM</text></svg></div>
+<div style="flex:1"><h1>SYAM</h1><p>TOKO SYAM - BANDUNG</p></div>
+<div class="badge">V9.3 - LOGO BARU</div>
+</header>
+
+<div class="card">
+<nav>
+<button onclick="show('p1',this)" class="on">1. Beranda</button>
+<button onclick="show('p2',this)">2. Barang</button>
+<button onclick="show('p3',this)">3. Keranjang</button>
+<button onclick="show('p4',this)">4. Kasir</button>
+<button onclick="show('p5',this)">5. Laporan</button>
+<button onclick="show('p6',this)">6. Stok</button>
+<button onclick="show('p7',this)">7. Login</button>
+<button onclick="show('p8',this)">8. Cara Pakai</button>
+</nav>
+</div>
+
+<div class="card page on" id="p1">
+<h2>Selamat Datang di SYAM</h2><p>129 Barang • Harga Grosir & Ecer • Bandung</p>
+<input id="cari" placeholder="Cari barang... ketik nama barang" oninput="tampil()">
+<div style="text-align:center;font-size:13px">Total Barang: <b id="totalBarang">129</b> • Keranjang: <b id="jmlKeranjang">0</b></div>
+<div class="grid" id="listHome"></div>
+</div>
+
+<div class="card page" id="p2">
+<h2>Daftar Barang</h2><p>Semua 129 barang SYAM</p>
+<input id="cari2" placeholder="Cari di daftar barang..." oninput="tampil2()">
+<div id="listAll"></div>
+</div>
+
+<div class="card page" id="p3">
+<h2>Keranjang Belanja</h2><p>Cek sebelum bayar</p>
+<div id="listCart"></div>
+<h3 style="text-align:right">Total: Rp <span id="totalCart">0</span></h3>
+<button class="btn" onclick="show('p4',document.querySelectorAll('nav button')[3])">Lanjut ke Kasir →</button>
+</div>
+
+<div class="card page" id="p4">
+<h2>Kasir</h2><p>Bayar & cetak struk</p>
+<input id="namaCust" placeholder="Nama Pembeli">
+<input id="bayar" type="number" placeholder="Uang dibayar (Rp)" oninput="hitungKembali()">
+<div style="font-size:15px">Total: Rp <b id="totalKasir">0</b><br>Kembalian: Rp <b id="kembali">0</b></div>
+<button class="btn" onclick="bayarNow()">BAYAR SEKARANG</button>
+<button class="btn btn2" onclick="batal()">Batal / Kosongkan Keranjang</button>
+<div id="struk" style="margin-top:12px;font-size:13px"></div>
+</div>
+
+<div class="card page" id="p5">
+<h2>Laporan</h2><p>Rekap penjualan hari ini</p>
+<div id="lap"></div>
+<button class="btn btn2" onclick="resetLap()">Reset Laporan</button>
+</div>
+
+<div class="card page" id="p6">
+<h2>Stok Barang</h2><p>Stok awal semua 100 pcs</p>
+<div id="listStok"></div>
+</div>
+
+<div class="card page" id="p7">
+<h2>Login Admin</h2><p>Login untuk buka kasir & laporan</p>
+<input id="user" placeholder="Username: admin">
+<input id="pass" type="password" placeholder="Password: 1234">
+<button class="btn" onclick="login()">LOGIN</button>
+<div id="loginMsg" style="text-align:center;margin-top:10px;font-weight:700"></div>
+<p style="text-align:center;font-size:12px;color:#888">Demo: admin / 1234</p>
+</div>
+
+<div class="card page" id="p8">
+<h2>Cara Pakai</h2><p>Ikuti langkah ini, Pak - Dijamin jalan</p>
+<div class="cara">
+<div><b>1. Cari Barang:</b><br>Di Beranda, ketik nama barang di kotak Cari. Contoh: Beras, Minyak, Kopi.</div>
+<div><b>2. Masuk Keranjang:</b><br>Pencet tombol <b>+ Keranjang</b> di barang yang mau dibeli.</div>
+<div><b>3. Cek Keranjang:</b><br>Pencet tombol <b>3. Keranjang</b> di atas. Lihat totalnya sudah betul belum.</div>
+<div><b>4. Bayar di Kasir:</b><br>Pencet <b>Lanjut ke Kasir</b>. Isi Nama Pembeli, isi Uang Dibayar. Kembalian langsung kehitung otomatis.</div>
+<div><b>5. Selesai:</b><br>Pencet <b>BAYAR SEKARANG</b>. Struk muncul, stok otomatis berkurang, laporan otomatis nambah.</div>
+<div><b>6. Login Admin:</b><br>Username: <b>admin</b> Password: <b>1234</b>. Kalau salah, muncul tulisan merah.</div>
+<div><b>7. Kalau Error:</b><br>Tutup browser, buka lagi 83syam.github.io. Jangan pencet tombol lain dulu.</div>
+<button class="btn" onclick="show('p1',document.querySelectorAll('nav button')[0])">← Kembali ke Beranda & Mulai Jualan</button>
+</div>
+</div>
+
+<div class="foot">SYAM V9.3 - LOGO BARU • 129 Barang • Bandung • 83syam.github.io</div>
+
 <script>
-const BARANG=[
-["Beras Premium","Sembako",14000,"Rp 14.000 / kg • Rp 325.000 / karung",20],["Beras Medium","Sembako",12500,"Rp 12.500 / kg",18],["Beras Ramos","Sembako",13500,"Rp 13.500 / kg",15],["Minyak Goreng Bimoli 1L","Sembako",18000,"Rp 18.000",40],["Minyak Goreng Fortune 1L","Sembako",17500,"Rp 17.500",35],["Minyak Goreng Tropical 2L","Sembako",34000,"Rp 34.000",20],["Gula Pasir","Sembako",16000,"Rp 16.000 / kg",30],["Gula Merah","Sembako",18000,"Rp 18.000 / kg",12],["Telur Ayam","Sembako",30000,"Rp 30.000 / kg",25],["Telur Bebek","Sembako",35000,"Rp 35.000 / kg",8],["Tepung Terigu Segitiga Biru 1kg","Sembako",13000,"Rp 13.000",28],["Tepung Terigu Kunci Biru 1kg","Sembako",12500,"Rp 12.500",18],["Tepung Beras Rose Brand","Sembako",8000,"Rp 8.000",20],["Tepung Tapioka","Sembako",9000,"Rp 9.000",15],["Susu Kental Manis Bendera","Sembako",13500,"Rp 13.500",22],["Susu Dancow 400g","Sembako",52000,"Rp 52.000",12],["Susu Ultra Milk 250ml","Sembako",7500,"Rp 7.500",30],["Kopi Kapal Api 165g","Sembako",22000,"Rp 22.000",20],["Kopi Kapal Api Sachet","Sembako",2000,"Rp 2.000",100],
-["Indomie Goreng","Mie Instan",3500,"Rp 3.500",120],["Indomie Goreng Jumbo","Mie Instan",5500,"Rp 5.500",60],["Indomie Goreng Aceh","Mie Instan",3500,"Rp 3.500",40],["Indomie Goreng Rendang","Mie Instan",3500,"Rp 3.500",40],["Indomie Kuah Ayam Bawang","Mie Instan",3200,"Rp 3.200",100],["Indomie Kuah Soto Mie","Mie Instan",3200,"Rp 3.200",80],["Indomie Kuah Kari Ayam","Mie Instan",3200,"Rp 3.200",60],["Indomie Kuah Ayam Spesial","Mie Instan",3200,"Rp 3.200",60],["Mie Sedaap Goreng","Mie Instan",3500,"Rp 3.500",120],["Mie Sedaap Goreng Korean Spicy","Mie Instan",3800,"Rp 3.800",50],["Mie Sedaap Kuah Ayam Bawang","Mie Instan",3200,"Rp 3.200",100],["Mie Sedaap Kuah Soto","Mie Instan",3200,"Rp 3.200",80],["Mie Sedaap Kuah Kari Spesial","Mie Instan",3200,"Rp 3.200",60],["Mie Sedaap Ayam Bawang","Mie Instan",3200,"Rp 3.200",60],["Mie Sedaap Cup Goreng","Mie Instan",6500,"Rp 6.500",40],["Pop Mie Goreng","Mie Instan",6500,"Rp 6.500",45],["Pop Mie Kuah Ayam","Mie Instan",6500,"Rp 6.500",45],["Sarimi Isi 2 Goreng","Mie Instan",4500,"Rp 4.500",50],["Sarimi Isi 2 Kuah Ayam Bawang","Mie Instan",4500,"Rp 4.500",50],["Mie Gaga 100 Goreng","Mie Instan",3000,"Rp 3.000",50],
-["Chiki Balls Keju","Jajanan Anak",3000,"Rp 3.000",80],["Chiki Twist Jagung Bakar","Jajanan Anak",3000,"Rp 3.000",70],["Taro Net Seaweed","Jajanan Anak",3500,"Rp 3.500",60],["Taro Net Pedas","Jajanan Anak",3500,"Rp 3.500",60],["Qtela Tempe","Jajanan Anak",3500,"Rp 3.500",50],["Chitato Sapi Panggang","Jajanan Anak",7000,"Rp 7.000",40],["Chitato Rumput Laut","Jajanan Anak",7000,"Rp 7.000",40],["Pilus Garuda","Jajanan Anak",2500,"Rp 2.500",90],["Beng Beng","Jajanan Anak",3500,"Rp 3.500",90],["Chocolatos Wafer Coklat","Jajanan Anak",2500,"Rp 2.500",90],["Better Biskuit","Jajanan Anak",2000,"Rp 2.000",100],["Roma Kelapa","Jajanan Anak",7000,"Rp 7.000",40],["Monde Butter Cookies","Jajanan Anak",12000,"Rp 12.000",30],["Yupi Gummy","Jajanan Anak",3000,"Rp 3.000",70],["Kusuka Keripik Singkong","Jajanan Anak",5000,"Rp 5.000",45],["Makaroni Pedas","Jajanan Anak",5000,"Rp 5.000",50],["Cimory Yogurt","Jajanan Anak",8000,"Rp 8.000",30],["Pocky Coklat","Jajanan Anak",8500,"Rp 8.500",35],
-["Cabai Merah Keriting","Sayuran",45000,"Rp 45.000 / kg",10],["Cabai Rawit Merah","Sayuran",55000,"Rp 55.000 / kg",8],["Bawang Merah","Sayuran",38000,"Rp 38.000 / kg",12],["Bawang Putih","Sayuran",42000,"Rp 42.000 / kg",12],["Kentang","Sayuran",18000,"Rp 18.000 / kg",15],["Wortel","Sayuran",12000,"Rp 12.000 / kg",15],["Kol","Sayuran",10000,"Rp 10.000 / kg",12],["Tomat","Sayuran",14000,"Rp 14.000 / kg",12],["Timun","Sayuran",8000,"Rp 8.000 / kg",15],["Bayam 1 Ikat","Sayuran",4000,"Rp 4.000",20],["Kangkung 1 Ikat","Sayuran",4000,"Rp 4.000",20],["Sawi Hijau 1 Ikat","Sayuran",4000,"Rp 4.000",18],["Terong Ungu","Sayuran",10000,"Rp 10.000 / kg",10],["Buncis","Sayuran",14000,"Rp 14.000 / kg",10],["Jagung Manis","Sayuran",6000,"Rp 6.000 / buah",20],["Jeruk Nipis","Sayuran",15000,"Rp 15.000 / kg",10],["Jahe","Sayuran",35000,"Rp 35.000 / kg",8],["Kunyit","Sayuran",25000,"Rp 25.000 / kg",8],["Lengkuas","Sayuran",18000,"Rp 18.000 / kg",8],
-["Tolak Angin Cair","Obat Warung",4500,"Rp 4.500",60],["Tolak Angin Tablet","Obat Warung",5000,"Rp 5.000",50],["Promag Tablet","Obat Warung",6500,"Rp 6.500",40],["Paracetamol","Obat Warung",3000,"Rp 3.000",60],["Bodrex","Obat Warung",4000,"Rp 4.000",50],["Antangin JRG","Obat Warung",4500,"Rp 4.500",55],["Minyak Kayu Putih Cap Lang 60ml","Obat Warung",22000,"Rp 22.000",20],["Betadine 15ml","Obat Warung",15000,"Rp 15.000",18],["Hansaplast","Obat Warung",8000,"Rp 8.000",40],["Balsem Geliga","Obat Warung",12000,"Rp 12.000",25],["Konidin","Obat Warung",4000,"Rp 4.000",45],["Mylanta Cair","Obat Warung",12000,"Rp 12.000",20],["Diapet","Obat Warung",4500,"Rp 4.500",40],["Salonpas Koyo","Obat Warung",10000,"Rp 10.000",30],["Freshcare Minyak Angin","Obat Warung",15000,"Rp 15.000",25],
-["Aqua Galon 19L","Minuman",20000,"Rp 20.000",15],["Aqua Botol 600ml","Minuman",4000,"Rp 4.000",80],["Le Minerale 600ml","Minuman",4000,"Rp 4.000",70],["Teh Pucuk Harum 350ml","Minuman",5000,"Rp 5.000",60],["Teh Kotak 300ml","Minuman",6000,"Rp 6.000",50],["Teh Gelas","Minuman",1500,"Rp 1.500",100],["Kopi Good Day Cappuccino","Minuman",4500,"Rp 4.500",80],["Kopi ABC Susu","Minuman",3500,"Rp 3.500",80],["Kopi Nescafe Classic Sachet","Minuman",3000,"Rp 3.000",70],["Energen Coklat","Minuman",4500,"Rp 4.500",60],["Marjan Sirup Cocopandan","Minuman",28000,"Rp 28.000",15],["Sirup ABC Squash Orange","Minuman",18000,"Rp 18.000",18],["Susu Bear Brand","Minuman",10500,"Rp 10.500",35],["Yakult","Minuman",11000,"Rp 11.000",30],["Floridina Orange","Minuman",5000,"Rp 5.000",40],
-["Kecap Bango 275ml","Bumbu & Lainnya",18000,"Rp 18.000",25],["Kecap ABC 275ml","Bumbu & Lainnya",14000,"Rp 14.000",25],["Saus Sambal ABC 335ml","Bumbu & Lainnya",16000,"Rp 16.000",22],["Saus Tomat ABC","Bumbu & Lainnya",15000,"Rp 15.000",20],["Masako Ayam","Bumbu & Lainnya",5500,"Rp 5.500",70],["Royco Ayam","Bumbu & Lainnya",5500,"Rp 5.500",70],["Royco Sapi","Bumbu & Lainnya",5500,"Rp 5.500",60],["Garam Halus 500g","Bumbu & Lainnya",5000,"Rp 5.000",40],["Mentega Blue Band 200g","Bumbu & Lainnya",14000,"Rp 14.000",20],["Sarden ABC 155g","Bumbu & Lainnya",12000,"Rp 12.000",30],["Kornet Pronas 340g","Bumbu & Lainnya",28000,"Rp 28.000",15],["Santan Kara 65ml","Bumbu & Lainnya",4500,"Rp 4.500",50],["Santan Kara 200ml","Bumbu & Lainnya",10000,"Rp 10.000",30],["Sabun Lifebuoy Batang","Bumbu & Lainnya",6500,"Rp 6.500",40],["Sabun Nuvo Cair","Bumbu & Lainnya",18000,"Rp 18.000",20],["Shampoo Pantene Sachet","Bumbu & Lainnya",2500,"Rp 2.500",80],["Pasta Gigi Pepsodent","Bumbu & Lainnya",12000,"Rp 12.000",30],["Deterjen Rinso 800g","Bumbu & Lainnya",22000,"Rp 22.000",20],["Sabun Cuci Piring Mama Lemon","Bumbu & Lainnya",10000,"Rp 10.000",25],["Gas LPG 3kg","Bumbu & Lainnya",22000,"Rp 22.000",10],["Gas LPG 12kg","Bumbu & Lainnya",165000,"Rp 165.000",4],["Baterai ABC AA 2pcs","Bumbu & Lainnya",8000,"Rp 8.000",30],["Lilin","Bumbu & Lainnya",3000,"Rp 3.000",25]
-];
-let cartCount=0, cartTotal=0;
-function renderKasir(){let q=(document.getElementById('cariInput').value||'').toLowerCase();let kat=document.getElementById('katFilter').value;let list=BARANG.map((b,i)=>({b:b,i:i})).filter(x=>(!kat||x.b[1]===kat)&&x.b[0].toLowerCase().includes(q));document.getElementById('countTampil').innerText=list.length;document.getElementById('tbKasir').innerHTML=list.map(x=>`<tr><td><b>${x.b[0]}</b></td><td>${x.b[1]}</td><td>${x.b[3]}</td><td>${x.b[4]}</td><td><button onclick="tambahIndex(${x.i})" style="background:#F97316;color:#fff;border:0;padding:8px 12px;border-radius:10px;font-weight:800">+ Tambah</button></td></tr>`).join('')||'<tr><td colspan="5">Barang tidak ditemukan</td></tr>'}
-function renderBelanja(){let q=(document.getElementById('cariBelanja').value||'').toLowerCase();let list=BARANG.map((b,i)=>({b:b,i:i})).filter(x=>x.b[0].toLowerCase().includes(q));document.getElementById('belanjaList').innerHTML=list.map(x=>`<div style="border:1px solid #eee;padding:12px;border-radius:16px;margin:8px 0"><b>${x.b[0]}</b><br><span style="color:#666;font-size:12px">${x.b[1]}</span><div class="price">${x.b[3]}</div><button class="btn orange" onclick="tambahIndex(${x.i})">PESAN SEKARANG</button></div>`).join('')||'<p>Barang tidak ditemukan</p>'}
-function tambahIndex(i){let b=BARANG[i];cartCount++;cartTotal+=b[2];document.getElementById('cart').innerText=cartCount+' barang';document.getElementById('cartTotal').innerText='Rp '+cartTotal.toLocaleString('id-ID');alert(b[0]+' ditambahkan ✅ - Rp '+b[2].toLocaleString('id-ID'))}
-function show(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));document.getElementById(id).classList.add('on');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('on'));if(btn)btn.classList.add('on');window.scrollTo(0,0)}
-function login(){let u=document.getElementById('u').value,p=document.getElementById('p').value;if(u==='Pusat83'&&p==='attalla01'){document.getElementById('msg').innerText='Login Pemilik Berhasil ✅';show('monitor',document.querySelectorAll('.nav button')[1])}else if(u==='Pusat83'&&p==='JUAL-A83K'){document.getElementById('msg').innerText='Login Penjual Berhasil ✅';show('kasir',document.querySelectorAll('.nav button')[2])}else document.getElementById('msg').innerText='Username / Password salah. Coba Pusat83 / attalla01'}
-function buatKode(){let k='JUAL-'+Math.random().toString(36).slice(2,6).toUpperCase();document.getElementById('kodeBaru').innerHTML='Kode Baru: <b>'+k+'</b> <span class="badgeG">Aktif</span> - Bagikan ke Penjual'}
-document.getElementById('totalMonitor').innerText=BARANG.length;
-renderKasir();renderBelanja();
-</script></body></html>
+let namaBarang=["Beras 5kg","Minyak Goreng 2L","Gula Pasir 1kg","Telur 1kg","Mie Instan","Susu Kental","Kopi Bubuk","Teh Celup","Sabun Mandi","Shampo","Pasta Gigi","Deterjen","Kecap Manis","Saos Tomat","Sarden Kaleng","Kornet","Margarin","Keju","Roti Tawar","Biskuit","Coklat","Permen","Kerupuk","Kacang","Air Mineral","Sirup","Jus Kotak","Soda","Energi Drink","Susu UHT","Yogurt","Mentega","Tepung Terigu","Tepung Beras","Bumbu Racik","Lada Bubuk","Garam","Penyedap","Santan","Mie Telur","Bihun","Soun","Makaroni","Spageti","Saos Sambal","Mayones","Cuka","Kecap Asin","Abon","Dendeng","Sosis","Nugget","Bakso","Susu Bubuk","Kopi Sachet","Teh Botol","Sabun Cuci","Pembersih Lantai","Pewangi","Tisu","Pembalut","Popok Bayi","Bedak","Lotion","Minyak Rambut","Sikat Gigi","Sabun Cuci Piring","Spons","Kantong Plastik","Baterai","Lilin","Korek Api","Obat Nyamuk","Pasta","Minyak Kayu Putih","Balsem","Plester","Vitamin C","Madu","Selai","Sereal","Oatmeal","Susu Kedelai","Kacang Almond","Kismis","Kurma","Gula Merah","Gula Batu","Agar-agar","Jelly","Puding","Es Krim","Frozen Food","Ayam Beku","Ikan Kaleng","Tuna Kaleng","Susu Evaporasi","Krimer","Gula Diet","Stevia","Bumbu Rendang","Bumbu Opor","Bumbu Gulai","Bumbu Soto","Bumbu Nasi Goreng","Bumbu Ayam Goreng","Saus Tiram","Minyak Wijen","Minyak Zaitun","Cuka Apel","Beras Merah","Beras Ketan","Jagung","Kedelai","Kacang Hijau","Kacang Tanah","Wijen","Jahe Bubuk","Kunyit Bubuk","Ketumbar","Jintan","Kayu Manis","Cengkeh","Pala","Daun Salam","Serai","Lengkuas","Kencur","Temulawak","Kopi Hitam","Teh Hijau","Jahe Merah","Susu Jahe","Wedang","Bajigur","Bandrek","Sekoteng"];
+let barang=[];for(let i=0;i<129;i++){let n=namaBarang[i];let h=5000+((i*1373)%45000);barang.push({id:i+1,nama:n,harga:h,stok:100})}
+let cart={};let totalJual=0;let jmlTrans=0;
+function rp(n){return n.toLocaleString('id-ID')}
+function show(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));document.getElementById(id).classList.add('on');document.querySelectorAll('nav button').forEach(b=>b.classList.remove('on'));if(btn)btn.classList.add('on');window.scrollTo(0,0)}
+function tampil(){let q=(document.getElementById('cari').value||'').toLowerCase();let f=barang.filter(b=>b.nama.toLowerCase().includes(q)).slice(0,20);document.getElementById('listHome').innerHTML=f.map(b=>`<div class="item"><b>${b.nama}</b><span>Rp ${rp(b.harga)}</span><br><small>Stok: ${b.stok} • No.${b.id}</small><button onclick="add(${b.id})">+ Keranjang</button></div>`).join('')||'Tidak ketemu, Pak.'}
+function tampil2(){let q=(document.getElementById('cari2').value||'').toLowerCase();let f=barang.filter(b=>b.nama.toLowerCase().includes(q));document.getElementById('listAll').innerHTML='<table><tr><th>No</th><th>Barang</th><th>Harga</th><th></th></tr>'+f.map(b=>`<tr><td>${b.id}</td><td>${b.nama}</td><td>Rp ${rp(b.harga)}</td><td><button onclick="add(${b.id})" style="padding:6px 10px;border:0;background:#F97316;color:#fff;border-radius:8px">+ Tambah</button></td></tr>`).join('')+'</table>'}
+function add(id){cart[id]=(cart[id]||0)+1;updateCart();alert('Ditambah ke keranjang!')}
+function updateCart(){let keys=Object.keys(cart);let tot=0;let jml=0;let html='';keys.forEach(id=>{let b=barang[id-1];let j=cart[id];let sub=b.harga*j;tot+=sub;jml+=j;html+=`<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee"><span>${b.nama} x ${j}</span><b>Rp ${rp(sub)}</b></div>`});document.getElementById('listCart').innerHTML=html||'Keranjang masih kosong, Pak.';document.getElementById('totalCart').innerText=rp(tot);document.getElementById('totalKasir').innerText=rp(tot);document.getElementById('jmlKeranjang').innerText=jml;hitungKembali()}
+function hitungKembali(){let tot=0;for(let id in cart)tot+=barang[id-1].harga*cart[id];let bayar=parseInt(document.getElementById('bayar').value||0);document.getElementById('kembali').innerText=rp(Math.max(0,bayar-tot))}
+function bayarNow(){let tot=0;for(let id in cart)tot+=barang[id-1].harga*cart[id];if(tot==0)return alert('Keranjang kosong, Pak.');let bayar=parseInt(document.getElementById('bayar').value||0);if(bayar<tot)return alert('Uang kurang, Pak.');totalJual+=tot;jmlTrans++;for(let id in cart)barang[id-1].stok-=cart[id];let nama=document.getElementById('namaCust').value||'Pembeli';document.getElementById('struk').innerHTML=`<div style="border:1px dashed #999;padding:12px;border-radius:10px"><b>STRUK SYAM V9.3</b><br>Pembeli: ${nama}<br>Total: Rp ${rp(tot)}<br>Bayar: Rp ${rp(bayar)}<br>Kembali: Rp ${rp(bayar-tot)}<br><b>TERIMA KASIH</b></div>`;cart={};updateCart();tampil();tampil2();tampilStok();tampilLap();alert('Pembayaran Berhasil!')}
+function batal(){cart={};updateCart()}
+function tampilStok(){document.getElementById('listStok').innerHTML='<table><tr><th>No</th><th>Barang</th><th>Stok</th></tr>'+barang.map(b=>`<tr><td>${b.id}</td><td>${b.nama}</td><td>${b.stok} pcs</td></tr>`).join('')+'</table>'}
+function tampilLap(){document.getElementById('lap').innerHTML=`<p>Total Transaksi: <b>${jmlTrans}</b></p><p>Total Penjualan: <b>Rp ${rp(totalJual)}</b></p><p>Total Barang: <b>129</b></p>`}
+function resetLap(){totalJual=0;jmlTrans=0;tampilLap()}
+function login(){let u=document.getElementById('user').value;let p=document.getElementById('pass').value;document.getElementById('loginMsg').innerText=(u=='admin'&&p=='1234')?'LOGIN BERHASIL, PAK! Selamat datang.':'Username / Password salah, Pak. Coba admin / 1234';document.getElementById('loginMsg').style.color=(u=='admin'&&p=='1234')?'green':'red'}
+tampil();tampil2();tampilStok();tampilLap();
+</script>
+</body></html>
